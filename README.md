@@ -2,6 +2,8 @@
 
 Una aplicación de chat cliente-servidor implementada en Python que utiliza **Sockets** para la comunicación y **SSL/TLS, RSA, AES-256** para cifrar los mensajes, garantizando la privacidad de la conversación. Incluye una interfaz gráfica (GUI) construida con **Tkinter**.
 
+![Demo del Chat](captura_chat.jpeg)
+
 ## Características
 
 * **Comunicación Encriptada:** Todo el tráfico entre el cliente y el servidor está protegido mediante SSL (Secure Sockets Layer).
@@ -39,7 +41,7 @@ openssl genpkey -algorithm RSA -out server-key.key -aes256
 # 2. Generar la solicitud de firma de certificado (CSR)
 openssl req -new -key server-key.key -out server.csr
 
-# 3. Generar el certificado autofirmado (valido por 365 días)
+# 3. Generar el certificado autofirmado 
 openssl x509 -req -days 365 -in server.csr -signkey server-key.key -out server-cert.pem
 
 # 4. Eliminar la contraseña de la clave privada (CRUCIAL para que el script de Python corra sin interrupciones)
